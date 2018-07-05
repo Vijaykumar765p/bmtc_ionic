@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+       Welcome <strong>User</strong>
+    </ion-title>
+    <ion-buttons end>
+      <!-- <button ion-button tappable (click)="presentNotifications($event)">
+        <ion-icon name="notifications"></ion-icon>
+      </button> -->
+      <!-- <button ion-button tappable (click)="goToAccount()">
+        <ion-icon name="cog"></ion-icon>
+      </button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="animated fadeIn common-bg">
+    <form #formCtrl="ngForm">
+      <ion-slides autoplay="2000" loop="true" speed="3000">
+        <ion-slide *ngFor="let slide of slideData">
+          <img src="{{slide.image}}" />
+        </ion-slide>
+      </ion-slides>
+      <div>
+        <button id="pass" ion-button color="positive" block on-click="pass()">
+          Buy Bus Pass
+        </button>
+      </div>
+      <div>
+        <button id="ticket" ion-button color="positive" block on-click="ticket()">
+          Buy Bus Ticket
+        </button>
+      </div>
+      <div>
+        <button id="idcard" ion-button color="positive" block on-click="idcard()">
+          Create your BMTC card
+        </button>
+      </div>
+    </form>
+</ion-content>

@@ -1,0 +1,58 @@
+<!-- <ion-content class="animated fadeIn login auth-page">
+  <div class="login-content">
+      <ion-item>
+        <ion-label>Select Pass Type</ion-label>
+        <ion-select [(ngModel)]="pass" (change)="onChange(pass)">
+          <ion-option value="d">Daily Pass</ion-option>
+          <ion-option value="m">Monthly Pass</ion-option>
+          <ion-option value="s">Student Pass</ion-option>
+          <ion-option value="o">Other Pass</ion-option>
+        </ion-select>
+      </ion-item>
+  </div>
+</ion-content> -->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Buy Bus Pass</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="common-bg">
+  <ion-card class="full-width" no-margin margin-bottom>
+    <ion-card-content no-padding>
+      <ion-item>
+        <ion-label>Select Pass Type</ion-label>
+        <ion-select [(ngModel)]="buypass" (ionChange)="getPass(buypass)">
+          <ion-option *ngFor="let buypass of SelectPassType" [value]="buypass.pt_id">{{ buypass.type }}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-grid class="card" padding *ngIf="passtype">
+    <ion-row>
+      <ion-col width-50 offset-25> -->
+
+  <div  *ngIf="passtype" >    
+  <ion-list *ngFor="let passtypedt of passtype">
+    <ion-item item-start>
+        <!-- <ion-icon item-start></ion-icon> -->
+            {{passtypedt.pd_type}}
+        <ion-note item-end>
+            {{passtypedt.price}}
+        </ion-note>
+      </ion-item>
+    <!-- <ion-item>
+      <button ion-button icon-end>
+        Buy
+      </button>
+    </ion-item> -->
+  </ion-list>
+</div>
+  <!-- </ion-col>
+    </ion-row>
+  </ion-grid> -->
+</ion-content>
