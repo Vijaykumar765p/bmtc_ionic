@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { NavController, NavParams, MenuController } from "ionic-angular";
 import { RegisterPage } from "../../pages/register/register";
 import { BuypassPage } from "../../pages/buypass/buypass";
-import { HomePage } from "../../pages/home/home";
+import { BuyticketPage } from "../buyticket/buyticket";
 
 
 @Component({
@@ -26,7 +26,7 @@ export class DashboardPage {
 
   ticket() {
     //Api connections
-    this.navCtrl.push(HomePage);
+    this.navCtrl.push(BuyticketPage);
   }
 
   idcard() {

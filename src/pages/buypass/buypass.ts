@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 
 @IonicPage()
@@ -17,7 +17,7 @@ export class BuypassPage {
     {type: 'Student Pass',pt_id: '3'},
     {type: 'Other Pass',pt_id: '4'}
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams,public restProvider: RestProvider) 
+  constructor(public navCtrl: NavController,public alerCtrl: AlertController, public navParams: NavParams,public restProvider: RestProvider) 
   {
   }
 
@@ -28,5 +28,14 @@ export class BuypassPage {
     }
     );
   }
+  tapEvent() {
+    let alert = this.alerCtrl.create({
+      title: 'Hi,',
+      message: 'Make Payment',
+      buttons: ['Ok']
+    });
+    alert.present()
+  }
+
 
 }

@@ -71,9 +71,9 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  logout() {
-    this.nav.setRoot(LoginPage);
-  }
+  logout(){
+            this.nav.setRoot(LoginPage);
+          }
   ionViewDidLoad() {
     this.getUser(this.id);
   }

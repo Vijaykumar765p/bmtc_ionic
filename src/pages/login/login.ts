@@ -23,8 +23,6 @@ export class LoginPage {
       let user = JSON.parse(localStorage.getItem('PERSON'));
       if (user){
         this.user = user;
-        // this.age = this.getAge(this.person.birthdate);
-        // this.dob = new Date(this.person.birthdate).toISOString();
         this.navCtrl.setRoot(DashboardPage);
       }
     }
