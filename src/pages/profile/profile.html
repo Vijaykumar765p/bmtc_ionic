@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="animated fadeIn common-bg">
+  <ion-card>
+    <img [src]="user.avatar" />
+    <ion-card-content>
+      <ion-card-title>{{user.first_name}}</ion-card-title>
+      <ion-card-title>{{user.useremail}}</ion-card-title>
+      <p>
+        {{user.user_address}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -8,6 +8,7 @@ import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { BuypassPage } from '../pages/buypass/buypass';
 import { BuyticketPage } from '../pages/buyticket/buyticket';
+import { ProfilePage } from '../pages/profile/profile';
 // import { DomSanitizer } from '@angular/platform-browser';
 import { RestProvider } from '../providers/rest/rest';
 
@@ -74,8 +75,11 @@ export class MyApp {
   logout(){
             this.nav.setRoot(LoginPage);
           }
+  goToProfile(){
+            this.nav.setRoot(ProfilePage);
+          }
   ionViewDidLoad() {
-    this.getUser(this.id);
+    // this.getUser(this.id);
   }
   // getUser(id) {
   //   this.restProvider.getOneUser(id) .map(data => {
@@ -87,11 +91,11 @@ export class MyApp {
   //     });
   // }
 
-  public getUser(id) {
-    this.restProvider.getPass(id).then(data=> {
-      this.user=data;
-      console.log(this.user);
-    }
-    );
-  }
+  // public getUser(id) {
+  //   this.restProvider.getPass(id).then(data=> {
+  //     this.user=data;
+  //     console.log(this.user);
+  //   }
+  //   );
+  // }
 }

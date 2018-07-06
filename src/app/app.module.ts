@@ -10,7 +10,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { HttpModule } from '@angular/http';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -20,17 +19,18 @@ import { SignupPage } from '../pages/signup/signup';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { BuypassPage } from '../pages/buypass/buypass';
 import { BuyticketPage } from '../pages/buyticket/buyticket';
+import { ProfilePage } from '../pages/profile/profile';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     LoginPage,
     RegisterPage,
     SignupPage,
     DashboardPage,
     BuypassPage,
-    BuyticketPage
+    BuyticketPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -41,13 +41,13 @@ import { BuyticketPage } from '../pages/buyticket/buyticket';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     LoginPage,
     RegisterPage,
     SignupPage,
     DashboardPage,
     BuypassPage,
-    BuyticketPage
+    BuyticketPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,

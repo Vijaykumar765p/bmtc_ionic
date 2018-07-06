@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Buy Bus Pass</ion-title>
+    <ion-title>BMTC Card</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding class="animated fadeIn common-bg">
@@ -64,7 +64,7 @@
       </ion-label>
       <ion-input type="text" [(ngModel)]="user.address" name="address" required></ion-input>
     </ion-item>
-    <button color="positive" [disabled]="!formCtrl.form.valid" ion-button block (click)="saveData()">Register</button>
+    <button color="positive" [disabled]="!formCtrl.form.valid" ion-button block (click)="saveData()">Create ID card</button>
     <button color="danger" ion-button block (click)="reset()">Reset</button>
   </form>
 </ion-content>

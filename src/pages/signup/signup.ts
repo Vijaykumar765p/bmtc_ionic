@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-// import {RegisterPage} from "../register/register";
 import { RestProvider } from '../../providers/rest/rest';
 import { LoginPage } from '../../pages/login/login';
+import { DashboardPage } from '../../pages/dashboard/dashboard';
 
 @IonicPage()
 @Component({
@@ -30,8 +30,7 @@ export class SignupPage {
         {
           console.log(body);
         });
-        //Api connections
-        // this.navCtrl.push(RegisterPage);
+        this.navCtrl.push(DashboardPage);
     }
   // ionViewDidLoad() {
   //   console.log('ionViewDidLoad SignupPage');

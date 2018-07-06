@@ -25,7 +25,7 @@
 
   <div *ngIf="passtype">
     <ion-list *ngFor="let pass of passtype">
-      <ion-item item-start (click)="tapEvent()">
+      <ion-item item-start tappable (click)="tapEvent()">
         <!-- <ion-icon item-start></ion-icon> -->
         {{pass.pd_type}}
         <ion-note ion-text color="primary" item-end>
