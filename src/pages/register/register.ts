@@ -12,7 +12,7 @@ import { Base64 } from '@ionic-native/base64';
 })
 export class RegisterPage {
 
-  user = { fname: '',lname: '', email: '', password: '',gender:'',dob:'',address:'',avatar:'' };
+  user = { fname: '',lname: '',gender:'',dob:'',address:'',avatar:'' };
   imgPreview = 'assets/img/blank-avatar.jpg';
   isfemale: any;
   ismale: any;
@@ -66,8 +66,6 @@ export class RegisterPage {
          {
               fname: this.user.fname,
               lname: this.user.lname,
-              email: this.user.email,
-              password: this.user.password,
               gender: this.selectedgender,
               dob: this.user.dob,
               address: this.user.address,
@@ -84,7 +82,7 @@ export class RegisterPage {
     }
   reset()
   {
-    this.user = { fname: null,lname: null, email: null, password: null,gender:null,dob:null,address:null,avatar:null};
+    this.user = { fname: null,lname: null,gender:null,dob:null,address:null,avatar:null};
   }
  }
 

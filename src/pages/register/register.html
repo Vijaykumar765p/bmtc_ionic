@@ -26,19 +26,6 @@
       </ion-label>
       <ion-input type="text" maxlength=“20” [(ngModel)]="user.lname" name="lname" required></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label floating>
-        Email ID
-      </ion-label>
-      <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>
-        Password
-      </ion-label>
-      <ion-input type="text" [(ngModel)]="user.password" name="password" password-toggle="true" required></ion-input>
-    </ion-item>
-
     <ion-label>
       Gender
     </ion-label>
@@ -64,6 +51,7 @@
       </ion-label>
       <ion-input type="text" [(ngModel)]="user.address" name="address" required></ion-input>
     </ion-item>
+
     <button color="positive" [disabled]="!formCtrl.form.valid" ion-button block (click)="saveData()">Create ID card</button>
     <button color="danger" ion-button block (click)="reset()">Reset</button>
   </form>
