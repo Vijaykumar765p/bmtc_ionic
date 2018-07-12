@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
+// import { DomSanitizer } from '@angular/platform-browser';
 
 /**
  * Generated class for the ProfilePage page.
@@ -20,17 +21,31 @@ export class ProfilePage {
 
   constructor(public navCtrl: NavController, public restProvider: RestProvider, public navParams: NavParams) {
     this.id = navParams.get("id");
+
   }
 
   ionViewDidLoad() {
-    this.getOneUser(this.id);
+    var uid = localStorage.getItem('uid');
+    this.getOneUser(uid);
   }
 
+  // getOneUser(id) {
+  //   this.restProvider.getOneUser(id) .then(data=> {
+  //     this.user=data;
+  //     console.log(this.user);
+  //   }
+  //   );
+  // }
+
   getOneUser(id) {
-    this.restProvider.getOneUser(id) .then(data=> {
-      this.user=data;
-      console.log(this.user);
-    }
-    );
+    console.log("User Id:"+id);
+    this.restProvider.getOneUser(id) .map(data => {
+        this.user = {
+          fullname: data.userfullname,
+          email: data.useremail,
+          mob: data.usermob
+          // avatar: this.sanitizer.bypassSecurityTrustResourceUrl(data.avatar)
+        };
+      });
   }
 }

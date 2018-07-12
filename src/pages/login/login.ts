@@ -24,7 +24,7 @@ export class LoginPage {
       if (user){
         this.user = user;
         this.navCtrl.setRoot(DashboardPage);
-      }
+      } 
     }
 
 
@@ -40,7 +40,7 @@ export class LoginPage {
         {
 
           var resdata=JSON.parse(res._body);
-          console.log(resdata[0].exist);
+          console.log(resdata[0].user_id);
               if(resdata.length>0)
               {
                   if(resdata[0].exist == 0)
@@ -57,11 +57,13 @@ export class LoginPage {
                     navCtrlData.push(DashboardPage);
                     self.user = { username: '', password: ''}
                   }
+                  localStorage.setItem('PERSON', JSON.stringify(self.user));
+                  localStorage.setItem('uid', resdata[0].user_id);
               }
         });
         //Api connections
         // this.navCtrl.push(HomePage);
-        localStorage.setItem('PERSON', JSON.stringify(this.user));
+        
     }
 
     signup()
@@ -73,7 +75,7 @@ export class LoginPage {
     forgotPass() {
       let forgot = this.forgotCtrl.create({
         title: 'Forgot Password?',
-        message: "Enter you email address to send a reset link password.",
+        message: "Enter your email address to send a reset link password.",
         inputs: [
           {
             name: 'email',

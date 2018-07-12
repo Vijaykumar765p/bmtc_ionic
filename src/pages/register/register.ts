@@ -12,8 +12,9 @@ import { Base64 } from '@ionic-native/base64';
 })
 export class RegisterPage {
 
-  user = { fname: '',lname: '',gender:'',dob:'',address:'',avatar:'' };
-  imgPreview = 'assets/img/blank-avatar.jpg';
+  user = { fname: '',lname: '',gender:'',dob:'',address:'',photo:'',sign:'' };
+  imgPreview1 = 'assets/img/users.png';
+  imgPreview2 = 'assets/img/signcolor.png';
   isfemale: any;
   ismale: any;
   selectedgender:any;
@@ -51,9 +52,24 @@ export class RegisterPage {
         };
         this.imagePicker.getPictures(options).then((results) => {
           for (var i = 0; i < results.length; i++) {
-              this.imgPreview = results[i];
+              this.imgPreview1 = results[i];
               this.base64.encodeFile(results[i]).then((base64File: string) => {
-                this.user.avatar = base64File;
+                this.user.photo = base64File;
+              }, (err) => {
+                console.log(err);
+              });
+          }
+        }, (err) => { });
+      }
+      getSign() {
+        let options = {
+          maximumImagesCount: 1
+        };
+        this.imagePicker.getPictures(options).then((results) => {
+          for (var i = 0; i < results.length; i++) {
+              this.imgPreview2 = results[i];
+              this.base64.encodeFile(results[i]).then((base64File: string) => {
+                this.user.sign = base64File;
               }, (err) => {
                 console.log(err);
               });
@@ -69,7 +85,8 @@ export class RegisterPage {
               gender: this.selectedgender,
               dob: this.user.dob,
               address: this.user.address,
-              avatar: this.user.avatar
+              photo: this.user.photo,
+              sign: this.user.sign
          });
 
      console.log(body);
@@ -82,7 +99,7 @@ export class RegisterPage {
     }
   reset()
   {
-    this.user = { fname: null,lname: null,gender:null,dob:null,address:null,avatar:null};
+    this.user = { fname: null,lname: null,gender:null,dob:null,address:null,photo:null,sign:null};
   }
  }
 
