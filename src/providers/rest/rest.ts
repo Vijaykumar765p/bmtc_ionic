@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import {Http,RequestOptions, Headers } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
-import { map, catchError } from 'rxjs/operators';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
@@ -18,33 +16,10 @@ export class RestProvider {
     console.log('Hello RestProvider Provider');
   }
 
-  private extractData(res: Response) {
-    let body = res;
-    return body || {};
-  }
-
-  private handleError (error: Response | any) {
-    let errMsg: string;
-    if (error instanceof Response) {
-      const err = error || '';
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
-  }
-
+// BUY PASS API
   getPass(type){
-    // return this.http.get(apiUrl+'getpasstype?type='+type).pipe(
-    //   map(this.extractData),
-    //   catchError(this.handleError)
-    // );
-
     return new Promise(resolve => {
       this.HttpClient.get(apiUrl+'getpasstype?type='+type).subscribe(data => {
-
-        console.log(data);
         resolve(data);
       }, err => {
         console.log(err);
@@ -52,6 +27,7 @@ export class RestProvider {
     });
   }
 
+// GET ALL USERS API
   getUsers() {
     return new Promise(resolve => {
       this.HttpClient.get(apiUrl+'users').subscribe(data => {
@@ -64,23 +40,18 @@ export class RestProvider {
     });
   }
 
-  getOneUser(id):Observable<any> {
-    // return new Promise(resolve => {
-    //   this.HttpClient.get(apiUrl+'users/'+id).subscribe(data => {
-
-    //     console.log(data);
-    //     resolve(data);
-    //   }, err => {
-    //     console.log(err);
-    //   });
-    // });  
-    console.log("http://192.168.1.20:2000/users/"+id);
-    return this.http.get(apiUrl+'users?userid='+id).pipe(
-      map(this.extractData),
-      catchError(this.handleError)
-    );
+// GET SINGLE USER
+  getOneUser(id) {
+    return new Promise(resolve => {
+      this.HttpClient.get(apiUrl+'users/'+id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });  
   }
 
+// LOGIN API
  doLogin(formdata,cb) {
     let headers = new Headers({
             'Content-type': 'application/x-www-form-urlencoded',
@@ -99,6 +70,7 @@ export class RestProvider {
           });
   }
 
+//CREATE BMTC ID API
 createBmtcId(formdata,cb) {
     let headers = new Headers({
             'Content-type': 'application/x-www-form-urlencoded',
@@ -117,6 +89,7 @@ createBmtcId(formdata,cb) {
           });
   }
 
+// SIGN UP/REGISTER API
   doRegister(formdata,cb) {
     let headers = new Headers({
             'Content-type': 'application/x-www-form-urlencoded',

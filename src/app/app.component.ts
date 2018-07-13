@@ -9,7 +9,6 @@ import { DashboardPage } from "../pages/dashboard/dashboard";
 import { BuypassPage } from '../pages/buypass/buypass';
 import { BuyticketPage } from '../pages/buyticket/buyticket';
 import { ProfilePage } from '../pages/profile/profile';
-// import { DomSanitizer } from '@angular/platform-browser';
 import { RestProvider } from '../providers/rest/rest';
 
 export interface MenuItem {
@@ -26,22 +25,19 @@ export class MyApp {
   rootPage:any = LoginPage;
 
   appMenuItems: Array<MenuItem>;
-  user = {};
+  users: any;
   id:any;
   loading:any;
 
   constructor
   ( public platform: Platform, 
-    // public navParams: NavParams,
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,
     public restProvider: RestProvider,
     public menu: MenuController,
     public loadingCtrl: LoadingController,
-    // private sanitizer: DomSanitizer,
     private keyboard: Keyboard) 
   {
-    // this.id = navParams.get("id");
     this.initializeApp();
     this.appMenuItems = [
       {title: 'Home', component: DashboardPage, icon: 'home'},
@@ -69,7 +65,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.push(page.component);
+    this.nav.setRoot(page.component);
   }
 
   logout(){  
@@ -79,24 +75,16 @@ export class MyApp {
   goToProfile(){
             this.nav.push(ProfilePage);
           }
-  ionViewDidLoad() {
-    // this.getUser(this.id);
-  }
-  // getUser(id) {
-  //   this.restProvider.getOneUser(id) .map(data => {
-  //       this.user = {
-  //         email: data.email,
-  //         fullname: data.fullname,
-  //         avatar: this.sanitizer.bypassSecurityTrustResourceUrl(data.avatar)
-  //       };
-  //     });
-  // }
 
-  // public getUser(id) {
-  //   this.restProvider.getPass(id).then(data=> {
-  //     this.user=data;
-  //     console.log(this.user);
-  //   }
-  //   );
-  // }
+  ionViewDidLoad() {
+            var uid = localStorage.getItem('uid');
+            this.getOneUser(uid);
+          }
+  public getOneUser(id) {
+    this.restProvider.getOneUser(id).then(data=> {
+      this.users=data;
+      console.log(data);
+    }
+    );
+  }
 }

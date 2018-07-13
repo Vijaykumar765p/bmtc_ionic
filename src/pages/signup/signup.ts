@@ -24,13 +24,13 @@ export class SignupPage {
               mobileno: this.user.mobileno,
               password: this.user.password
          });
+    
 
-     console.log(body);
         this.restProvider.createBmtcId(body, function(res)
         {
-          console.log(body);
+
         });
-        this.navCtrl.push(DashboardPage);
+        this.navCtrl.setRoot(DashboardPage);
     }
   // ionViewDidLoad() {
   //   console.log('ionViewDidLoad SignupPage');

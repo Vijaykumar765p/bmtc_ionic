@@ -24,7 +24,6 @@ export class BuypassPage {
   public getPass(buypass) {
     this.restProvider.getPass(buypass).then(data=> {
       this.passtype=data;
-      console.log(this.passtype);
     }
     );
   }

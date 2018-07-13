@@ -9,14 +9,27 @@
 
 
 <ion-content padding class="animated fadeIn common-bg">
-  <ion-card>
+
+  <ion-card *ngFor="let user of users">
     <!-- <img [src]="user.avatar" /> -->
-    <ion-card-content>
-      <ion-card-title>{{user.fullname}}</ion-card-title>
-      <ion-card-title>{{user.email}}</ion-card-title>
+    <div align="center">
+    <img class="profile-image" src="assets/img/blank-avatar.jpg">
+    </div>
+    <ion-card-content >
+      <h4>Name: {{user.userfullname}}</h4>
+      <h5>Username: {{user.useremail}}</h5>
       <p>
-        {{user.mob}}
+        Mobile No: {{user.usermob}}
       </p>
     </ion-card-content>
   </ion-card>
+
 </ion-content>
+<!-- <ion-content>
+    <ion-list inset>
+      <ion-item *ngFor="let user of users">
+        <h2>{{user.userfullname}}</h2>
+        <p>{{user.useremail}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content> -->

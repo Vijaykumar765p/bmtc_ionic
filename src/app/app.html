@@ -3,6 +3,7 @@
     <ion-toolbar class="user-profile">
 
       <ion-grid>
+        <!-- <div *ngIf="users"> -->
         <ion-row>
           <ion-col col-4>
             <div class="user-avatar">
@@ -12,14 +13,15 @@
           </ion-col>
           <ion-col padding-top col-8>
             <h2 ion-text class="no-margin bold text-white">
-              {{user.fullname}}
+              <!-- {{users.userfullname}} -->
               <!-- XXXX-XXXX -->
             </h2>
             <span ion-text color="light">
-              {{user.email}}
+              <!-- {{user.email}} -->
             </span>
           </ion-col>
         </ion-row>
+      <!-- </div> -->
 
         <ion-row no-padding class="other-data">
           <ion-col no-padding class="column">

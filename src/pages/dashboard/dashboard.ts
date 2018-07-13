@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, MenuController } from "ionic-angular";
+import { IonicPage, NavController, NavParams, MenuController } from "ionic-angular";
 import { RegisterPage } from "../../pages/register/register";
 import { BuypassPage } from "../../pages/buypass/buypass";
 import { BuyticketPage } from "../buyticket/buyticket";
 
-
+@IonicPage()
 @Component({
   selector: "page-dashboard",
   templateUrl: "dashboard.html"
@@ -15,6 +15,7 @@ export class DashboardPage {
     { image: "assets/img/slide2.jpg" },
     { image: "assets/img/slide3.jpg" }
   ];
+
   constructor(public navCtrl: NavController,public menu: MenuController, public navParams: NavParams) {
     this.menu.swipeEnable(true);
   }
@@ -34,3 +35,4 @@ export class DashboardPage {
     this.navCtrl.push(RegisterPage);
   }
 }
+

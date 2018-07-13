@@ -40,7 +40,6 @@ export class LoginPage {
         {
 
           var resdata=JSON.parse(res._body);
-          console.log(resdata[0].user_id);
               if(resdata.length>0)
               {
                   if(resdata[0].exist == 0)
@@ -54,7 +53,7 @@ export class LoginPage {
                   }
                   else
                   {
-                    navCtrlData.push(DashboardPage);
+                    navCtrlData.setRoot(DashboardPage);
                     self.user = { username: '', password: ''}
                   }
                   localStorage.setItem('PERSON', JSON.stringify(self.user));

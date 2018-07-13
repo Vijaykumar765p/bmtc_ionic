@@ -89,11 +89,11 @@ export class RegisterPage {
               sign: this.user.sign
          });
 
-     console.log(body);
         this.restProvider.doRegister(body, function(res)
         {
-          console.log(body);
+          
         });
+        this.user = { fname: null,lname: null,gender:null,dob:null,address:null,photo:null,sign:null};
         //Api connections
         // this.navCtrl.push(WelcomePage);
     }
