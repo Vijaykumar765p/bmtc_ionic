@@ -70,10 +70,10 @@ export class MyApp {
 
   logout(){  
             localStorage.clear();
-            this.nav.push(LoginPage);
+            this.nav.setRoot(LoginPage);
           }
   goToProfile(){
-            this.nav.push(ProfilePage);
+            this.nav.setRoot(ProfilePage);
           }
 
   ionViewDidLoad() {
