@@ -9,6 +9,7 @@ import { DashboardPage } from "../pages/dashboard/dashboard";
 import { BuypassPage } from '../pages/buypass/buypass';
 import { BuyticketPage } from '../pages/buyticket/buyticket';
 import { ProfilePage } from '../pages/profile/profile';
+import { ShowidPage } from '../pages/showid/showid';
 import { RestProvider } from '../providers/rest/rest';
 
 export interface MenuItem {
@@ -42,7 +43,8 @@ export class MyApp {
     this.appMenuItems = [
       {title: 'Home', component: DashboardPage, icon: 'home'},
       {title: 'Buy Pass', component: BuypassPage, icon: 'md-bookmarks'},
-      {title: 'Buy Ticket', component: BuyticketPage, icon: 'ios-bookmark-outline'}
+      {title: 'Buy Ticket', component: BuyticketPage, icon: 'ios-bookmark-outline'},
+      {title: 'Show ID', component: ShowidPage, icon: 'ios-card-outline'}
     ];
   }
   initializeApp() {

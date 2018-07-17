@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 // import { HomePage } from '../../pages/home/home';
 import { RestProvider } from '../../providers/rest/rest';
 import { ImagePicker } from '@ionic-native/image-picker';
@@ -11,40 +11,27 @@ import { Base64 } from '@ionic-native/base64';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-
-  user = { fname: '',lname: '',gender:'',dob:'',address:'',photo:'',sign:'' };
+  periodType: any;
+  user = { fname: '',lname: '',gender:'',dob:'',address:'',period:'',photo:'',sign:'' };
   imgPreview1 = 'assets/img/users.png';
   imgPreview2 = 'assets/img/signcolor.png';
-  isfemale: any;
-  ismale: any;
-  selectedgender:any;
+  id:any;
+  public SelectGenderType: Array<any> = [
+    {type: 'Male', },
+    {type: 'Female'},
+    {type: 'Others'}
+  ]
   constructor
     ( 
       public navCtrl: NavController, 
       public navParams: NavParams,
       public restProvider: RestProvider,
       private imagePicker: ImagePicker,
-      private base64: Base64
+      private base64: Base64,
+      public alerCtrl: AlertController
     ) 
     {
-      this.isfemale = false;
-      this.ismale = false;
     }
-
-    selectgender(value)
-     {
-        if(value == 'Male')
-        {
-            this.isfemale = false;
-            this.ismale = true;
-        }
-        else if(value == 'Female')
-        {
-            this.isfemale = true;
-            this.ismale = false;
-        }
-          this.selectedgender = value;
-      }
 
       getPhoto() {
         let options = {
@@ -78,28 +65,47 @@ export class RegisterPage {
       }
     saveData()
    {
+    var uid = localStorage.getItem('uid');
      var body = JSON.stringify(
          {
+              id: uid,
               fname: this.user.fname,
               lname: this.user.lname,
-              gender: this.selectedgender,
+              gender: this.user.gender,
               dob: this.user.dob,
               address: this.user.address,
+              period:this.user.period,
               photo: this.user.photo,
               sign: this.user.sign
          });
 
-        this.restProvider.doRegister(body, function(res)
-        {
-          
+        this.restProvider.userUpdate(body, function(res)
+        { 
         });
-        this.user = { fname: null,lname: null,gender:null,dob:null,address:null,photo:null,sign:null};
+        this.user = { fname: null,lname: null,gender:null,dob:null,address:null,period:null,photo:null,sign:null};
         //Api connections
         // this.navCtrl.push(WelcomePage);
+        let alert = this.alerCtrl.create({
+          title: 'Hi,',
+          message: 'Make Payment',
+          buttons: ['Ok']
+        });
+        alert.present()
     }
   reset()
   {
-    this.user = { fname: null,lname: null,gender:null,dob:null,address:null,photo:null,sign:null};
+    this.user = { fname: null,lname: null,gender:null,dob:null,address:null,period:null,photo:null,sign:null};
+  }
+
+  public gperiod() {
+    this.restProvider.getPeriod().then(data=> {
+      this.periodType=data;
+    }
+    );
+  }
+  ionViewDidLoad() {
+
+    this.gperiod();
   }
  }
 

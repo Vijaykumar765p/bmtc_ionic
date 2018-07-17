@@ -20,6 +20,7 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { BuypassPage } from '../pages/buypass/buypass';
 import { BuyticketPage } from '../pages/buyticket/buyticket';
 import { ProfilePage } from '../pages/profile/profile';
+import { ShowidPage } from '../pages/showid/showid';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProfilePage } from '../pages/profile/profile';
     DashboardPage,
     BuypassPage,
     BuyticketPage,
-    ProfilePage
+    ProfilePage,
+    ShowidPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { ProfilePage } from '../pages/profile/profile';
     DashboardPage,
     BuypassPage,
     BuyticketPage,
-    ProfilePage
+    ProfilePage,
+    ShowidPage
   ],
   providers: [
     StatusBar,

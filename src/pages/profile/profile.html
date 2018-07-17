@@ -13,14 +13,27 @@
   <ion-card *ngFor="let user of users">
     <!-- <img [src]="user.avatar" /> -->
     <div align="center">
-    <img class="profile-image" src="assets/img/blank-avatar.jpg">
+      <img class="profile-image" src="assets/img/blank-avatar.jpg">
     </div>
-    <ion-card-content >
-      <h4>Name: {{user.userfullname}}</h4>
-      <h5>Username: {{user.useremail}}</h5>
-      <p>
-        Mobile No: {{user.usermob}}
-      </p>
+    <ion-card-content>
+      <h2>
+          Name:
+        <strong>
+            {{user.first_name}} {{user.last_name}}
+        </strong>
+      </h2>
+      <h2>
+          Email Id:
+        <strong>
+            {{user. user_email}}
+        </strong>
+      </h2>
+      <h2>
+          Mobile No:
+        <strong>
+            {{user.user_mobile}}
+        </strong>
+      </h2>
     </ion-card-content>
   </ion-card>
 

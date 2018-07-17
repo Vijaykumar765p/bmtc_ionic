@@ -7,58 +7,60 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding class="animated fadeIn common-bg">
-  <form #formCtrl="ngForm" class="list-form">
-    <ion-item>
-      <ion-label floating>
-        First Name
-      </ion-label>
-      <ion-input type="text" maxlength=“20” [(ngModel)]="user.fname" name="fname" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>
-        Last Name
-      </ion-label>
-      <ion-input type="text" maxlength=“20” [(ngModel)]="user.lname" name="lname" required></ion-input>
-    </ion-item>
-    <ion-label>
-      Gender
+  <!-- <form #formCtrl="ngForm" class="list-form"> -->
+  <ion-item>
+    <ion-label floating>
+      First Name
     </ion-label>
-    <ion-item>
-      <ion-label>Male</ion-label>
-      <ion-radio on-click="selectgender('Male')" checked={{ismale}} value="Male" required></ion-radio>
-    </ion-item>
+    <ion-input type="text" maxlength=“20” [(ngModel)]="user.fname" name="fname" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>
+      Last Name
+    </ion-label>
+    <ion-input type="text" maxlength=“20” [(ngModel)]="user.lname" name="lname" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Select Gender</ion-label>
+    <ion-select [(ngModel)]="user.gender">
+      <ion-option *ngFor="let selectgender of SelectGenderType">{{ selectgender.type }}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>
+      Date Of Birth
+    </ion-label>
+    <ion-datetime required name="birthdate" displayFormat="YYYY/MM/DD" pickerFormat="DD MMM YYYY" [(ngModel)]="user.dob" [ngModelOptions]="{standalone:true}"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>
+      Address
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.address" name="address" required></ion-input>
+  </ion-item>
 
-    <ion-item>
-      <ion-label>Female</ion-label>
-      <ion-radio on-click="selectgender('Female')" checked={{isfemale}} value="Female" required></ion-radio>
-    </ion-item>
-    <ion-item>
+  <ion-item>
+    <ion-label floating>Select Period</ion-label>
+    <ion-select [(ngModel)]="user.period" (ionChange)="gperiod()">
+      <ion-option *ngFor="let period of periodType">{{ period.period_duration }}</ion-option>
+    </ion-select>
+  </ion-item>
 
-      <ion-label floating>
-        Date Of Birth
-      </ion-label>
-      <ion-datetime required name="birthdate" displayFormat="YYYY/MM/DD" pickerFormat="DD MMM YYYY" [(ngModel)]="user.dob" [ngModelOptions]="{standalone:true}"></ion-datetime>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>
-        Address
-      </ion-label>
-      <ion-input type="text" [(ngModel)]="user.address" name="address" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label >Upload Photo</ion-label>
-      <ion-avatar item-end>
-        <img src="{{imgPreview1}}" (click)="getPhoto()">
-      </ion-avatar>
-    </ion-item>
-    <ion-item>
-      <ion-label >Upload Signature</ion-label>
-      <ion-avatar item-end>
-        <img src="{{imgPreview2}}" (click)="getSign()">
-      </ion-avatar>
-    </ion-item>
+  <ion-item>
+    <ion-label>Upload Photo</ion-label>
+    <ion-avatar item-end>
+      <img src="{{imgPreview1}}" (click)="getPhoto()">
+    </ion-avatar>
+  </ion-item>
+  <ion-item>
+    <ion-label>Upload Signature</ion-label>
+    <ion-avatar item-end>
+      <img src="{{imgPreview2}}" (click)="getSign()">
+    </ion-avatar>
+  </ion-item>
 
-    <button color="positive" [disabled]="!formCtrl.form.valid" ion-button block (click)="saveData()">Create ID card</button>
-    <button color="danger" ion-button block (click)="reset()">Reset</button>
-  </form>
+  <button color="positive" ion-button block (click)="saveData()">Create ID card</button>
+  <button color="danger" ion-button block (click)="reset()">Reset</button>
+  <!-- </form> -->
 </ion-content>
+<!-- [disabled]="!formCtrl.form.valid" -->

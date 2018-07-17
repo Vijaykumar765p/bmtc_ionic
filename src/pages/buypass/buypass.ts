@@ -30,7 +30,7 @@ export class BuypassPage {
   tapEvent() {
     let alert = this.alerCtrl.create({
       title: 'Hi,',
-      message: 'Make Payment',
+      message: 'Proceed to Payment',
       buttons: ['Ok']
     });
     alert.present()

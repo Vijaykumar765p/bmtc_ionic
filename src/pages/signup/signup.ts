@@ -1,37 +1,38 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { LoginPage } from '../../pages/login/login';
-import { DashboardPage } from '../../pages/dashboard/dashboard';
-
 @IonicPage()
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
 })
 export class SignupPage {
-	user = { emailid: '',mobileno: '', password: '',fullname: ''};
+	user = { email: '',mobile: '', pwd: '',fname: ''};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider,public alerCtrl: AlertController) {
   }
 
   signUp()
    {
      var body = JSON.stringify(
          {
-         	    fullname: this.user.fullname,
-              emailid: this.user.emailid,
-              mobileno: this.user.mobileno,
-              password: this.user.password
+              fname: this.user.fname,
+              email: this.user.email,
+              mobile: this.user.mobile,
+              pwd: this.user.pwd
          });
-    
-
-        this.restProvider.createBmtcId(body, function(res)
+        this.restProvider.doRegister(body, function(res)
         {
-
         });
-        this.navCtrl.setRoot(DashboardPage);
-    }
+        let alert = this.alerCtrl.create({
+          title: 'Hey,',
+          message: 'You have Registered Successfully',
+          buttons: ['Ok']
+        });
+        alert.present()
+        this.navCtrl.setRoot(LoginPage);
+      }
   // ionViewDidLoad() {
   //   console.log('ionViewDidLoad SignupPage');
   // }

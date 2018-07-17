@@ -16,6 +16,8 @@ export class RestProvider {
     console.log('Hello RestProvider Provider');
   }
 
+// Get() methods
+
 // BUY PASS API
   getPass(type){
     return new Promise(resolve => {
@@ -51,6 +53,19 @@ export class RestProvider {
     });  
   }
 
+// GET PERIOD TYPE
+getPeriod() {
+  return new Promise(resolve => {
+    this.HttpClient.get(apiUrl+'periodtype/').subscribe(data => {
+      resolve(data);
+    }, err => {
+      console.log(err);
+    });
+  });  
+}
+
+// Post() methods
+
 // LOGIN API
  doLogin(formdata,cb) {
     let headers = new Headers({
@@ -71,7 +86,7 @@ export class RestProvider {
   }
 
 //CREATE BMTC ID API
-createBmtcId(formdata,cb) {
+doRegister(formdata,cb) {
     let headers = new Headers({
             'Content-type': 'application/x-www-form-urlencoded',
             'Accept': 'application/json, text/plain, */*'
@@ -79,7 +94,7 @@ createBmtcId(formdata,cb) {
         let options = new RequestOptions({ headers: headers });
 
       this.http
-          .post(apiUrl+'createbmtcid', formdata, options)
+          .post(apiUrl+'register/', formdata, options)
           .subscribe(data => 
           {
             cb(data);
@@ -90,7 +105,7 @@ createBmtcId(formdata,cb) {
   }
 
 // SIGN UP/REGISTER API
-  doRegister(formdata,cb) {
+  userUpdate(formdata,cb) {
     let headers = new Headers({
             'Content-type': 'application/x-www-form-urlencoded',
             'Accept': 'application/json, text/plain, */*'
@@ -98,7 +113,7 @@ createBmtcId(formdata,cb) {
         let options = new RequestOptions({ headers: headers });
 
       this.http
-          .post(apiUrl+'register', formdata, options)
+          .post(apiUrl+'userupdate/', formdata, options)
           .subscribe(data => 
           {
             cb(data);

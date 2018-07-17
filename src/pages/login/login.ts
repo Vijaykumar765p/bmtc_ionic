@@ -49,15 +49,15 @@ export class LoginPage {
                       duration: 3000,
                     });
                     toast.present(toast);
-                    self.user = { username: '', password: ''}
+                    self.user = { username: null, password: null}
                   }
                   else
                   {
                     navCtrlData.setRoot(DashboardPage);
-                    self.user = { username: '', password: ''}
+                    self.user = { username: resdata[0].username, password: resdata[0].password}
                   }
                   localStorage.setItem('PERSON', JSON.stringify(self.user));
-                  localStorage.setItem('uid', resdata[0].user_id);
+                  localStorage.setItem('uid', resdata[0].ur_id);
               }
         });
         //Api connections

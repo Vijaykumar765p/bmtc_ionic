@@ -9,7 +9,7 @@ import { RestProvider } from '../../providers/rest/rest';
 })
 export class ProfilePage {
   users : any;
-  id:any;
+  // id:any;
 
   constructor(public navCtrl: NavController, public restProvider: RestProvider, public navParams: NavParams) {
 
