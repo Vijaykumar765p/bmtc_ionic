@@ -1,0 +1,45 @@
+Ionic commands
+
+//Install ionic
+npm install -g cordova ionic
+
+//Version
+ionic -v
+
+//Ionic Tabs app
+ionic start myApp tabs
+
+//Start creates myApp and setup Ionic files and folders.
+cd myApp
+
+//to run your ionic project
+ionic serve
+
+//to run on browser
+ionic cordova run browser 
+
+ionic cordova prepare
+
+ionic cordova build android
+
+ionic cordova run android
+
+cordova run browser
+
+// plugin installation
+ionic plugin add plugin-name
+
+
+MObiscroll UI
+npm install -g @mobiscroll/cli
+
+mobiscroll config ionic
+
+
+//RXJS
+npm i rxjs-compat
+
+//Add or Remove platform
+
+ionic cordova platform add android
+ionic cordova platform rm android

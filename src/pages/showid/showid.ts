@@ -26,7 +26,7 @@ export class ShowidPage {
   getOneUser(id) {
     this.restProvider.getOneUser(id) .then(data => {
       this.users = data;
-      console.log(data);
+      // console.log(data);
       });
   }
 }
