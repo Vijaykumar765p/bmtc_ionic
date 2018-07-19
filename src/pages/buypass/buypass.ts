@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
+import { PaymentPage } from '../../pages/payment/payment';
 
 @IonicPage()
 @Component({
@@ -27,12 +28,22 @@ export class BuypassPage {
     }
     );
   }
-  tapEvent() {
+  tapEvent(price) {
+    localStorage.setItem('price', price);
     let alert = this.alerCtrl.create({
-      title: 'Hi,',
+      title: 'Hi please pay,'+price,
       message: 'Proceed to Payment',
-      buttons: ['Ok']
+      buttons: [{
+        text: "OK",
+        handler: () => {
+            this.navCtrl.push(PaymentPage)
+        },
+    }],
     });
     alert.present()
+  }
+  ionViewDidLoad() {
+    var uid = localStorage.getItem('uid');
+    console.log(uid);
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RestProvider } from '../../providers/rest/rest';
 
 /**
  * Generated class for the ShowidPage page.
@@ -14,12 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'showid.html',
 })
 export class ShowidPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  users : any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShowidPage');
+    var uid = localStorage.getItem('uid');
+    this.getOneUser(uid);
   }
-
+  getOneUser(id) {
+    this.restProvider.getOneUser(id) .then(data => {
+      this.users = data;
+      console.log(data);
+      });
+  }
 }

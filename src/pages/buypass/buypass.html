@@ -20,10 +20,11 @@
   </ion-card>
   <div *ngIf="passtype">
     <ion-list *ngFor="let pass of passtype">
-      <ion-item item-start tappable (click)="tapEvent()">
+      <ion-item item-start tappable (click)="tapEvent(pass.price)">
         {{pass.pd_type}}
         <ion-note ion-text color="primary" item-end>
-          Rs:{{pass.price}}
+            <!-- <ion-icon name="custom-rupee-indian" item-left></ion-icon> -->
+            Rs:{{pass.price}}
         </ion-note>
       </ion-item>
     </ion-list>

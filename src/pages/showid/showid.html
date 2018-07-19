@@ -9,24 +9,27 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding class="animated fadeIn common-bg">
-  <ion-card id="home-card21">
-    <ion-list>
-      <ion-item color="none" id="home-list-item7">
-        <ion-avatar item-end>
+  <ion-card  *ngFor="let user of users">
+    <ion-list padding style="background:url(assets/img/card.jpg) no-repeat center;background-size:cover;">
+      <ion-item>
+        <ion-avatar item-right>
           <img class="profile-image" src="assets/img/users.png">
+          <!-- <img [src]="user.user_photo" /> -->
         </ion-avatar>
         <h2>
           ID card No:
           <strong>
-            xxxxxx
+            {{user.user_id}}
           </strong>
         </h2>
         <h2>
           Name:
           <strong>
-            xxxxxx
+            {{user.first_name}} {{user.last_name}}
           </strong>
         </h2>
+        </ion-item>
+        <ion-item>
         <h2>
           Age:
           <strong>
@@ -36,17 +39,14 @@
         <h2>
           Address:
           <strong>
-            xxxxxx
+            {{user.user_address}}
           </strong>
         </h2>
       </ion-item>
-      <!-- <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-      </div> -->
       <ion-item id="home-list-item-container2">
         <div id="home-markdown2" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
-            Validity period:
+            Validity:
             <strong>
               xxxxxx
             </strong>
@@ -54,6 +54,7 @@
         </div>
         <ion-avatar item-right>
           <img class="profile-image" src="assets/img/signcolor.png">
+          <!-- <img [src]="user.user_sign" /> -->
         </ion-avatar>
       </ion-item>
     </ion-list>

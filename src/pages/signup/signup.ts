@@ -28,7 +28,7 @@ export class SignupPage {
         let alert = this.alerCtrl.create({
           title: 'Hey,',
           message: 'You have Registered Successfully',
-          buttons: ['Ok']
+          buttons: ['Please Log in']
         });
         alert.present()
         this.navCtrl.setRoot(LoginPage);
@@ -37,6 +37,7 @@ export class SignupPage {
   //   console.log('ionViewDidLoad SignupPage');
   // }
   login() {
+    localStorage.clear();
     this.navCtrl.setRoot(LoginPage);
   }
 }

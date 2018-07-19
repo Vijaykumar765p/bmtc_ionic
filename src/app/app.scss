@@ -478,3 +478,32 @@ ion-icon[ng-reflect-disabled="true"] {
 .fadeInDown {
   animation-name: fadeInDown;
 }
+
+ion-icon {
+  &[class*="custom-"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+  &[class*="custom-bankcards"] {
+    mask-image: url(../assets/icons/bankcards.png);
+  }
+  &[class*="custom-paytm"] {
+    mask-image: url(../assets/icons/paytm.png);
+  }
+  &[class*="custom-bank-building"] {
+    mask-image: url(../assets/icons/bank-building.png);
+  }
+  &[class*="custom-rupee-indian"] {
+    mask-image: url(../assets/icons/rupee-indian.png);
+  }
+  &[class*="custom-worldwide"] {
+    mask-image: url(../assets/icons/worldwide.png);
+  }
+  &[class*="custom-paypal"] {
+    mask-image: url(../assets/icons/paypal.png);
+  }
+}

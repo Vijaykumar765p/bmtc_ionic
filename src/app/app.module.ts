@@ -21,6 +21,7 @@ import { BuypassPage } from '../pages/buypass/buypass';
 import { BuyticketPage } from '../pages/buyticket/buyticket';
 import { ProfilePage } from '../pages/profile/profile';
 import { ShowidPage } from '../pages/showid/showid';
+import { PaymentPage } from '../pages/payment/payment';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ShowidPage } from '../pages/showid/showid';
     BuypassPage,
     BuyticketPage,
     ProfilePage,
-    ShowidPage
+    ShowidPage,
+    PaymentPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { ShowidPage } from '../pages/showid/showid';
     BuypassPage,
     BuyticketPage,
     ProfilePage,
-    ShowidPage
+    ShowidPage,
+    PaymentPage
   ],
   providers: [
     StatusBar,

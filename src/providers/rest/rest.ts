@@ -33,7 +33,6 @@ export class RestProvider {
   getUsers() {
     return new Promise(resolve => {
       this.HttpClient.get(apiUrl+'users').subscribe(data => {
-
         console.log(data);
         resolve(data);
       }, err => {
@@ -46,6 +45,7 @@ export class RestProvider {
   getOneUser(id) {
     return new Promise(resolve => {
       this.HttpClient.get(apiUrl+'users/'+id).subscribe(data => {
+        console.log(data);
         resolve(data);
       }, err => {
         console.log(err);
